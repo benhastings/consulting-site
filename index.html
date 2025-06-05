@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Climber Advisory - Technology Transformation Leadership</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: #2c3e50;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+        color: #3498db;
+    }
+    
+    .hero {
+        background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        color: white;
+        padding: 150px 0 100px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,80 C20,60 40,70 60,50 C80,30 100,40 100,20 L100,100 L0,100 Z" fill="rgba(255,255,255,0.05)"/></svg>') no-repeat center;
+        background-size: cover;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+    
+    .tagline {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+        font-weight: 300;
+        opacity: 0.9;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin: 0 auto 3rem;
+        opacity: 0.9;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        background: #e74c3c;
+        color: white;
+        padding: 15px 35px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    }
+    
+    .cta-button:hover {
+        background: #c0392b;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+    }
+    
+    .section {
+        padding: 80px 0;
+        background: white;
+    }
+    
+    .section:nth-child(even) {
+        background: #f8f9fa;
+    }
+    
+    .section h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #2c3e50;
+    }
+    
+    .value-prop {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-left: 5px solid #3498db;
+        padding: 2rem;
+        margin: 3rem 0;
+        border-radius: 0 10px 10px 0;
+    }
+    
+    .value-prop h3 {
+        color: #2c3e50;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+    
+    .service-card {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        border-top: 4px solid #3498db;
+    }
+    
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    
+    .service-card h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+    
+    .service-card .problem {
+        background: #fff3cd;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+        border-left: 4px solid #ffc107;
+    }
+    
+    .service-card .outcome {
+        background: #d1edff;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+        border-left: 4px solid #0dcaf0;
+    }
+    
+    .credentials {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: white;
+        text-align: center;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+    
+    .stat {
+        padding: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #3498db;
+        display: block;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-top: 0.5rem;
+    }
+    
+    .climbing-metaphor {
+        background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        color: white;
+        text-align: center;
+    }
+    
+    .metaphor-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+    
+    .metaphor-item {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .metaphor-item h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #ecf0f1;
+    }
+    
+    footer {
+        background: #2c3e50;
+        color: white;
+        text-align: center;
+        padding: 3rem 0;
+    }
+    
+    .contact-info {
+        margin-top: 2rem;
+    }
+    
+    .contact-info a {
+        color: #3498db;
+        text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+        }
+        
+        .nav-links {
+            display: none;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Lead Climber Advisory</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+```
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Lead Climber Advisory</h1>
+            <p class="tagline">First up the mountain, securing the path for your transformation</p>
+            <p class="hero-description">
+                We've navigated enterprise-scale technology transformations supporting trillions of data points and thousands of applications. 
+                Now we guide scaling companies through the proven routes to observability, reliability, and platform excellence.
+            </p>
+            <a href="#contact" class="cta-button">Chart Your Route to Scale</a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2>The Journey from Startup to Enterprise Scale</h2>
+        
+        <div class="value-prop">
+            <h3>🎯 The Challenge Every Scaling Company Faces</h3>
+            <p>You've found product-market fit. You're growing fast. But your technology foundation—built for speed and iteration—now needs to support enterprise-scale reliability, performance, and user experience. The route ahead is uncertain, and the stakes are high.</p>
+        </div>
+
+        <div class="value-prop">
+            <h3>🧗‍♂️ Why You Need a Lead Climber</h3>
+            <p>We've already established the route. Led enterprise transformations supporting 2,700+ applications, trillions of daily data points, and global teams. We know which paths are dangerous, which shortcuts work, and how to place the protection systems that keep your team safe while scaling.</p>
+        </div>
+
+        <div class="value-prop">
+            <h3>⚡ The Foundation Stack That Scales</h3>
+            <p><strong>Observability</strong> enables <strong>Reliability</strong> → drives <strong>Customer Experience</strong> → delivers <strong>Business Outcomes</strong><br>
+            We don't just add monitoring tools. We build the complete technology reliability foundation that transforms how your organization operates.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="services">
+    <div class="container">
+        <h2>Service Offerings</h2>
+        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem;">
+            Strategic assessments and solution design that transform technology foundations into competitive advantages.
+        </p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>🔍 Observability Strategy & Platform Readiness</h3>
+                <div class="problem">
+                    <strong>The Problem:</strong> Companies lack visibility into system health and user experience, leading to high MTTR, unexpected outages, and inability to predict capacity or manage risk.
+                </div>
+                <p><strong>What We Deliver:</strong> Comprehensive evaluation of current tools and data pipelines, detailed roadmap for platform consolidation, performance gap analysis, and executive dashboards aligned to business KPIs.</p>
+                <div class="outcome">
+                    <strong>Expected Outcomes:</strong> 20-90% cost savings, reduced incident response times, clear line of sight from metrics to business impact.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h3>🛡️ SRE Practice Design & Implementation</h3>
+                <div class="problem">
+                    <strong>The Problem:</strong> Organizations want SRE principles but lack proper structure, SLO clarity, or consistent incident management approaches.
+                </div>
+                <p><strong>What We Deliver:</strong> Complete SRE operating framework, hands-on SLO and error budget setup, incident response templates, and team coaching through reliability best practices.</p>
+                <div class="outcome">
+                    <strong>Expected Outcomes:</strong> Formalized reliability playbook, reduced critical incidents, higher developer satisfaction, clear business-technical alignment.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h3>⚡ Performance Optimization & UX Diagnostics</h3>
+                <div class="problem">
+                    <strong>The Problem:</strong> Customer-facing platforms suffer from sluggish performance and inconsistent user experience, hurting conversion rates and brand perception.
+                </div>
+                <p><strong>What We Deliver:</strong> Real User Measurement integration, comprehensive performance audits, prioritized improvement backlogs, and performance culture workshops.</p>
+                <div class="outcome">
+                    <strong>Expected Outcomes:</strong> Reduced bounce rates, increased user satisfaction, continuous performance monitoring in CI/CD, stronger brand loyalty.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h3>🏗️ Platform Engineering & Team Scaling Strategy</h3>
+                <div class="problem">
+                    <strong>The Problem:</strong> Fast-growing organizations struggle with siloed teams, duplicated tooling, slow deployments, and inconsistent CI/CD practices.
+                </div>
+                <p><strong>What We Deliver:</strong> Platform engineering charter, golden paths and architectural blueprints, organizational design guidance, and agile/DevOps integration frameworks.</p>
+                <div class="outcome">
+                    <strong>Expected Outcomes:</strong> Reduced developer cognitive load, consistent scalable infrastructure, faster time-to-market, enhanced dev/ops/security collaboration.
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h3>👨‍💼 Fractional Engineering Leadership</h3>
+                <div class="problem">
+                    <strong>The Problem:</strong> Leadership gaps during transitions or scaling phases require immediate strategic oversight without full-time hire commitment.
+                </div>
+                <p><strong>What We Deliver:</strong> Interim technical leadership, due diligence assessments, stakeholder alignment, and mentorship with succession planning.</p>
+                <div class="outcome">
+                    <strong>Expected Outcomes:</strong> Maintained engineering momentum, clear governance frameworks, accelerated go-to-market timelines, documented transition plans.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section credentials" id="experience">
+    <div class="container">
+        <h2>The Experience That Counts</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 3rem;">
+            We know the route because we've established it at enterprise scale.
+        </p>
+
+        <div class="stats-grid">
+            <div class="stat">
+                <span class="stat-number">4.2T</span>
+                <span class="stat-label">Daily data points processed</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">2,700+</span>
+                <span class="stat-label">Applications supported</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">90%</span>
+                <span class="stat-label">Cost reduction achieved</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">90%</span>
+                <span class="stat-label">Performance improvements delivered</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p style="font-size: 1.1rem; opacity: 0.9;">
+                <strong>Enterprise-Scale Transformation Leadership:</strong> Led observability transformations, implemented enterprise-wide SRE practices, and rolled out agile methodologies for thousands of engineers. Built the technology reliability foundations that enable companies to scale with confidence.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section climbing-metaphor" id="approach">
+    <div class="container">
+        <h2>The Lead Climber Approach</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 3rem;">
+            We've pioneered the routes to enterprise-scale reliability. Now we guide your expedition.
+        </p>
+
+        <div class="metaphor-grid">
+            <div class="metaphor-item">
+                <h4>🎯 Route Planning</h4>
+                <p>We assess your current position, understand your summit goals, and design the safest, most efficient path to enterprise-scale reliability.</p>
+            </div>
+            <div class="metaphor-item">
+                <h4>🔗 Placing Protection</h4>
+                <p>We establish the observability, SRE, and platform systems that keep your team safe while pushing into uncharted territory.</p>
+            </div>
+            <div class="metaphor-item">
+                <h4>🧗‍♂️ Leading by Example</h4>
+                <p>We go first, demonstrating techniques and building confidence so your team can follow the route independently.</p>
+            </div>
+            <div class="metaphor-item">
+                <h4>📍 Securing the Route</h4>
+                <p>We ensure the path is well-marked with documentation, training, and systems so future teams can climb safely.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; padding: 2rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+            <h3 style="margin-bottom: 1rem;">Our Philosophy</h3>
+            <p style="font-size: 1.1rem;">
+                "In mountaineering and technology transformation, the goal isn't just reaching the summit—it's establishing routes that others can follow safely. We've been there. We know the way. Let us guide your expedition to enterprise scale."
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer id="contact">
+    <div class="container">
+        <h2>Ready to Begin Your Ascent?</h2>
+        <p style="font-size: 1.1rem; margin: 1rem 0;">
+            Let's discuss your technology transformation challenges and chart the route to enterprise-scale reliability.
+        </p>
+        
+        <div class="contact-info">
+            <p><strong>Remote-first consulting with strategic travel</strong></p>
+            <p>Serving scaling companies across the United States and Western Europe</p>
+            <p style="margin-top: 2rem;">
+                <a href="mailto:hello@leadclimberadvisory.com">hello@leadclimberadvisory.com</a><br>
+                <a href="https://linkedin.com/in/ben-[lastname]">LinkedIn</a> | 
+                <a href="#schedule">Schedule a Strategy Session</a>
+            </p>
+        </div>
+        
+        <p style="margin-top: 3rem; opacity: 0.7;">
+            © 2025 Lead Climber Advisory. First up the mountain, securing the path for your transformation.
+        </p>
+    </div>
+</footer>
+```
+
+</body>
+</html>
