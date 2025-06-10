@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interim Engineering Leadership - Lead Climber Advisory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        
+        .section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 3rem 0;
+        }
+        
+        .challenge-box {
+            background: #fff3cd;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #ffc107;
+        }
+        
+        .solution-box {
+            background: #d6d8db;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #34495e;
+        }
+        
+        .methodology {
+            background: #f8f9fa;
+            padding: 4rem 0;
+        }
+        
+        .methodology-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .step-number {
+            background: #34495e;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+        
+        .deliverables {
+            background: white;
+        }
+        
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .deliverable {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            border-top: 4px solid #34495e;
+        }
+        
+        .deliverable h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .timeline {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+        
+        .timeline-phases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .phase {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .phase h4 {
+            color: #bdc3c7;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .outcomes {
+            background: #34495e;
+            color: white;
+            text-align: center;
+        }
+        
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .outcome-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .outcome-item h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .cta-section {
+            background: #f8f9fa;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #34495e;
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+        
+        .cta-button:hover {
+            background: #2c3e50;
+            transform: translateY(-2px);
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .scenarios {
+            background: #ecf0f1;
+            padding: 4rem 0;
+        }
+        
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .scenario {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #34495e;
+        }
+        
+        .scenario h4 {
+            color: #34495e;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Lead Climber Advisory</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#methodology">Methodology</a></li>
+                <li><a href="#deliverables">Deliverables</a></li>
+                <li><a href="#outcomes">Outcomes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Interim Engineering Leadership</h1>
+            <p class="hero-subtitle">
+                Full engineering leadership during transitions. Strategic technical due diligence. 
+                Mentorship programs that prepare your internal teams for permanent leadership roles.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Lead Climber Advisory</a>
+            
+            <div class="overview-grid">
+                <div class="challenge-box">
+                    <h3>The Business Challenge</h3>
+                    <p><strong>Leadership gaps during critical transitions require immediate strategic oversight without long-term commitment.</strong></p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>VP/Director departure leaves strategic void in engineering organization</li>
+                        <li>Scaling requires engineering leadership but you're not ready for permanent hire</li>
+                        <li>Need technical due diligence for M&A or investment decisions</li>
+                        <li>Internal candidates need mentorship before taking on leadership roles</li>
+                        <li>Critical technology decisions require experienced executive perspective</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-box">
+                    <h3>Our Strategic Approach</h3>
+                    <p><strong>We provide immediate engineering leadership while building internal capability for long-term success.</strong></p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Establish or stabilize engineering strategies, team structures, and processes</li>
+                        <li>Provide technical due diligence and strategic technology assessments</li>
+                        <li>Maintain stakeholder alignment with C-level leaders, boards, and investors</li>
+                        <li>Mentor and develop internal leaders for permanent roles</li>
+                        <li>Ensure seamless handover with documented processes and succession planning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="scenarios">
+        <div class="container">
+            <h2>Common Interim Leadership Scenarios</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">
+                Situations where interim engineering leadership provides immediate value and strategic continuity.
+            </p>
+
+            <div class="scenarios-grid">
+                <div class="scenario">
+                    <h4>🔄 Leadership Transition</h4>
+                    <p>VP or Director departure creates strategic void. Need immediate leadership to maintain team momentum and strategic direction while conducting permanent hire search.</p>
+                </div>
+                
+                <div class="scenario">
+                    <h4>📈 Scaling Inflection Point</h4>
+                    <p>Rapid growth requires engineering leadership but organization isn't ready for permanent VP/CTO hire. Need strategic guidance to build scalable engineering foundations.</p>
+                </div>
+                
+                <div class="scenario">
+                    <h4>🔍 Technical Due Diligence</h4>
+                    <p>M&A activity, investment rounds, or strategic partnerships require independent technical assessment of reliability, scalability, and engineering capability.</p>
+                </div>
+                
+                <div class="scenario">
+                    <h4>👨‍🏫 Leadership Development</h4>
+                    <p>Internal candidates identified for promotion need executive coaching and mentorship to successfully transition into engineering leadership roles.</p>
+                </div>
+                
+                <div class="scenario">
+                    <h4>⚡ Crisis Response</h4>
+                    <p>Technical challenges or organizational disruption requires experienced engineering leadership to stabilize operations and establish recovery plan.</p>
+                </div>
+                
+                <div class="scenario">
+                    <h4>🎯 Strategic Initiative</h4>
+                    <p>Major technology transformation, platform migration, or architectural evolution requires dedicated executive focus and specialized expertise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="methodology" id="methodology">
+        <div class="container">
+            <h2>Interim Leadership Methodology</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">
+                Systematic approach to interim leadership that maintains momentum while building sustainable internal capability.
+            </p>
+
+            <div class="methodology-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Rapid Assessment & Stabilization</h4>
+                    <p>Immediate evaluation of engineering organization health, team dynamics, and critical priorities. Stabilize operations and communication while establishing leadership presence.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Strategic Planning & Alignment</h4>
+                    <p>Develop or refine engineering strategy aligned with business objectives. Establish clear priorities, resource allocation, and stakeholder communication cadence.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Team Development & Processes</h4>
+                    <p>Implement or improve engineering processes, team structures, and operational frameworks. Focus on sustainability and knowledge transfer.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Succession Planning & Mentorship</h4>
+                    <p>Identify and develop internal leadership candidates. Provide executive coaching and establish mentorship programs for sustainable leadership transition.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Knowledge Transfer & Transition</h4>
+                    <p>Comprehensive documentation of strategies, processes, and decisions. Smooth handover to permanent leadership with continuity planning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="deliverables" id="deliverables">
+        <div class="container">
+            <h2>Interim Leadership Deliverables</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">
+                Complete leadership framework that ensures continuity and enables successful transition to permanent leadership.
+            </p>
+
+            <div class="deliverables-grid">
+                <div class="deliverable">
+                    <h4>🎯 Engineering Strategy & Roadmap</h4>
+                    <p>Comprehensive technology strategy aligned with business objectives, including architectural decisions, platform choices, and resource allocation plans with clear priorities and timelines.</p>
+                </div>
+                
+                <div class="deliverable">
+                    <h4>🔍 Technical Due Diligence Assessment</h4>
+                    <p>Independent evaluation of technology stack, engineering practices, team capability, and scalability. Includes risk assessment and recommendations for improvement or investment.</p>
+                </div>
+                
+                <div class="deliverable">
+                    <h4>👥 Team Structure & Process Framework</h4>
+                    <p>Optimized engineering organization design, role definitions, reporting structures, and operational processes that support sustainable growth and effective collaboration.</p>
+                </div>
+                
+                <div class="deliverable">
+                    <h4>📊 Stakeholder Communication System</h4>
+                    <p>Regular reporting cadence and communication frameworks for C-level leaders, boards, and investors. Includes technical metrics translated to business impact.</p>
+                </div>
+                
+                <div class="deliverable">
+                    <h4>👨‍🏫 Leadership Development Program</h4>
+                    <p>Structured mentorship and coaching program for internal leadership candidates, including skill development plans, succession roadmaps, and executive coaching sessions.</p>
+                </div>
+                
+                <div class="deliverable">
+                    <h4>📚 Transition Documentation</h4>
+                    <p>Comprehensive knowledge transfer including strategic decisions, process documentation, team assessments, and recommendations for ongoing leadership success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline" id="timeline">
+        <div class="container">
+            <h2>Engagement Timeline</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">
+                Flexible timeline that adapts to your specific leadership needs and transition requirements.
+            </p>
+
+            <div class="timeline-phases">
+                <div class="phase">
+                    <h4>Week 1</h4>
+                    <h5>Rapid Assessment</h5>
+                    <p>Immediate evaluation of engineering organization, team dynamics, critical priorities, and stakeholder expectations. Establish leadership presence and communication.</p>
+                </div>
+                
+                <div class="phase">
+                    <h4>Weeks 2-4</h4>
+                    <h5>Stabilization & Planning</h5>
+                    <p>Stabilize operations, develop strategic plans, and establish sustainable processes. Begin stakeholder alignment and team development activities.</p>
+                </div>
+                
+                <div class="phase">
+                    <h4>Ongoing</h4>
+                    <h5>Leadership Execution</h5>
+                    <p>Full engineering leadership including strategy execution, team management, stakeholder communication, and continuous improvement based on organizational needs.</p>
+                </div>
+                
+                <div class="phase">
+                    <h4>Transition Period</h4>
+                    <h5>Knowledge Transfer</h5>
+                    <p>Comprehensive handover to permanent leadership including documentation, mentorship, and transition planning to ensure continuity and success.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; padding: 2rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+                <p style="font-size: 1.1rem;">
+                    <strong>Adaptive Duration:</strong> Engagements typically range from 3-12 months depending on organizational needs, complexity of challenges, and timeline for permanent leadership hiring or development.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="outcomes" id="outcomes">
+        <div class="container">
+            <h2>Expected Business Impact</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">
+                Maintained momentum and strategic continuity during critical transitions.
+            </p>
+
+            <div class="outcomes-grid">
+                <div class="outcome-item">
+                    <h4>⚡ Maintained Engineering Momentum</h4>
+                    <p>Continued strategic progress and team productivity despite leadership transitions. No loss of development velocity or strategic direction during interim period.</p>
+                </div>
+                
+                <div class="outcome-item">
+                    <h4>🎯 Clear Governance & Strategy</h4>
+                    <p>Established governance frameworks that align technology priorities with business objectives. Clear decision-making processes and strategic technology roadmaps.</p>
+                </div>
+                
+                <div class="outcome-item">
+                    <h4>🚀 Accelerated Growth Capability</h4>
+                    <p>Enhanced organizational capability to scale technology and teams. Improved engineering processes and foundations that support business growth.</p>
+                </div>
+                
+                <div class="outcome-item">
+                    <h4>👨‍💼 Developed Internal Leadership</h4>
+                    <p>Stronger internal leadership pipeline with mentored and coached team members ready for permanent leadership roles. Reduced future leadership transition risk.</p>
+                </div>
+                
+                <div class="outcome-item">
+                    <h4>📋 Seamless Transition Planning</h4>
+                    <p>Well-documented transition plan enabling smooth handover to permanent leadership. Comprehensive knowledge transfer and succession planning.</p>
+                </div>
+                
+                <div class="outcome-item">
+                    <h4>🔍 Strategic Technology Insights</h4>
+                    <p>Independent technical assessment providing clarity on technology investments, architectural decisions, and engineering capability for stakeholders and investors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Need Immediate Engineering Leadership?</h2>
+            <p style="font-size: 1.2rem; margin: 2rem 0;">
+                Let's discuss your leadership transition needs and how we can provide continuity during critical periods.
+            </p>
+            
+            <a href="mailto:hello@leadclimberadvisory.com" class="cta-button">Schedule Urgent Consultation</a>
+            <a href="index.html" class="cta-button" style="background: #3498db;">Back to All Services</a>
+            
+            <div style="margin-top: 3rem;">
+                <p><strong>Next Steps:</strong></p>
+                <p>Immediate consultation to understand your leadership needs and timeline. We can typically begin interim leadership engagements within 1-2 weeks of initial discussion.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
