@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform Engineering Strategy - Lead Climber Advisory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        
+        .section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 3rem 0;
+        }
+        
+        .challenge-box {
+            background: #fff3cd;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #ffc107;
+        }
+        
+        .solution-box {
+            background: #e8d5f0;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #9b59b6;
+        }
+        
+        .methodology {
+            background: #f8f9fa;
+            padding: 4rem 0;
+        }
+        
+        .methodology-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .step-number {
+            background: #9b59b6;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+        
+        .deliverables {
+            background: white;
+        }
+        
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .deliverable {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            border-top: 4px solid #9b59b6;
+        }
+        
+        .deliverable h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .timeline {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+        
+        .timeline-phases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .phase {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .phase h4 {
+            color: #bb6bd9;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .outcomes {
+            background: #9b59b6;
+            color: white;
+            text-align: center;
+        }
+        
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .outcome-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .outcome-item h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .cta-section {
+            background: #f8f9fa;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #9b59b6;
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+        
+        .cta-button:hover {
+            background: #8e44ad;
+            transform: translateY(-2px);
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Lead Climber Advisory</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#methodology">Methodology</a></li>
+                <li><a href="#deliverables">Deliverables</a></li>
+                <li><a href="#outcomes">Outcomes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Platform Engineering Strategy</h1>
+            <p class="hero-subtitle">
+                Enable sustainable feature velocity through developer productivity platforms. Design golden paths that accelerate time-to-market. 
+                Create the infrastructure foundations that scale with your business growth.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Lead Climber Advisory</a>
+            
+            <div class="overview-grid">
+                <div class="challenge-box">
+                    <h3>The Business Challenge</h3>
+                    <p><strong>Fast-growing organizations struggle with siloed teams and inconsistent infrastructure that slows feature delivery.</strong></p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Teams reinvent infrastructure solutions instead of focusing on business features</li>
+                        <li>Duplicated tooling and inconsistent CI/CD practices across teams</li>
+                        <li>New developer onboarding takes weeks instead of days</li>
+                        <li>Deployment complexity increases with team growth</li>
+                        <li>Lack of standardization slows collaboration and knowledge sharing</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-box">
+                    <h3>Our Strategic Approach</h3>
+                    <p><strong>We design platform engineering strategies that accelerate developer productivity while maintaining operational excellence.</strong></p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Create platform engineering charter defining scope and responsibilities</li>
+                        <li>Design golden paths that make the right way the easy way</li>
+                        <li>Establish self-service infrastructure that scales with team growth</li>
+                        <li>Build developer productivity platforms that reduce cognitive load</li>
+                        <li>Implement "platform as a product" culture with internal customer focus</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="methodology" id="methodology">
+        <div class="container">
+            <h2>Platform Engineering Methodology</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">
+                Strategic approach to platform engineering that balances developer autonomy with operational consistency.
+            </p>
+
+            <div class="methodology-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Current State Analysis</h4>
+                    <p>Assess existing development workflows, tooling landscape, and team productivity pain points. Identify opportunities for standardization and automation.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Platform Strategy Design</h4>
+                    <p>Define platform engineering vision, scope, and success metrics. Create charter establishing platform team responsibilities and relationship with product development teams.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Golden Path Development</h4>
+                    <p>Design and implement standardized workflows for common development tasks. Create self-service tools and templates that make best practices the default choice.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Infrastructure Automation</h4>
+                    <p>Build automated infrastructure provisioning, deployment pipelines, and environment management. Focus on reducing manual operational overhead.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Developer Experience Optimization</h4>
+                    <p>Implement developer productivity tools, documentation systems, and feedback mechanisms. Establish platform adoption metrics and continuous improvement processes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="deliverables" id="deliverables">
+        <div class="container">
+            <h2>Platform Engineering Deliverables</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">
+                Complete platform engineering framework that transforms developer productivity and operational efficiency.
+            </p>
+
+            <div class="deliverables-grid">
+                <div class="deliverable">
+                    <h4>📋 Platform Engineering Charter</h4>
+                    <p>Comprehensive document defining platform team scope, responsibilities, and success metrics. Establishes clear relationship between platform and product teams, including service level agreements.</p>
+                </div>
+                
+                <div class="deliverable">
+                    <h4>🛤️ Golden Paths & Architectural Blueprints</h4>
+                    <p>Ready-to-use templates for CI/CD pipelines, environment provisioning, configuration management, and deployment automation. Standardized patterns that accelerate development velocity.</p>
+                </div>
+                
+                <div class="deliverable">
+                    <h4>👥 Organizational Design & Hiring Roadmap</h4>
+                    <p>Strategic guidance on building or scaling platform teams, including required skill sets, interview frameworks, career progression paths, and onboarding strategies for platform engineers.</p>
+                </div>
+                
+                <div class="deliverable">
+                    <h4>🔄 DevOps Integration Framework</h4>
+                    <p>Process alignment ensuring seamless flow of features, security updates, and infrastructure changes into production without compromising stability or development velocity.</p>
+                </div>
+                
+                <div class="deliverable">
+                    <h4>🛠️ Self-Service Developer Tools</h4>
+                    <p>Implementation roadmap for developer productivity tools including environment provisioning, deployment automation, and infrastructure management interfaces that reduce operational overhead.</p>
+                </div>
+                
+                <div class="deliverable">
+                    <h4>📊 Platform Metrics & Success Framework</h4>
+                    <p>Key performance indicators for platform effectiveness including developer productivity metrics, deployment frequency, lead time, and platform adoption rates across teams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline" id="timeline">
+        <div class="container">
+            <h2>Implementation Timeline</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">
+                Phased approach that delivers immediate productivity improvements while building long-term platform capability.
+            </p>
+
+            <div class="timeline-phases">
+                <div class="phase">
+                    <h4>Weeks 1-3</h4>
+                    <h5>Assessment & Strategy</h5>
+                    <p>Current state analysis, platform strategy development, and stakeholder alignment on platform engineering vision and priorities.</p>
+                </div>
+                
+                <div class="phase">
+                    <h4>Weeks 4-8</h4>
+                    <h5>Golden Path Design</h5>
+                    <p>Development of standardized workflows, templates, and automation frameworks. Initial implementation of high-impact developer productivity improvements.</p>
+                </div>
+                
+                <div class="phase">
+                    <h4>Weeks 9-12</h4>
+                    <h5>Platform Implementation</h5>
+                    <p>Deployment of self-service tools, automation systems, and developer productivity platforms. Team training and adoption support.</p>
+                </div>
+                
+                <div class="phase">
+                    <h4>Weeks 13-14</h4>
+                    <h5>Optimization & Handoff</h5>
+                    <p>Performance tuning, feedback integration, and knowledge transfer to internal platform teams. Establishment of continuous improvement processes.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; padding: 2rem; background: rgba(255, 255, 255, 0.1); border-radius: 10px;">
+                <p style="font-size: 1.1rem;">
+                    <strong>Scalable Approach:</strong> Timeline scales with organization size and complexity. Small teams may complete transformation in 8 weeks, while larger organizations may require 16-20 week implementations.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="outcomes" id="outcomes">
+        <div class="container">
+            <h2>Expected Business Impact</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">
+                Measurable improvements in developer productivity, feature delivery speed, and operational efficiency.
+            </p>
+
+            <div class="outcomes-grid">
+                <div class="outcome-item">
+                    <h4>⚡ Accelerated Time-to-Market</h4>
+                    <p>Faster feature delivery through standardized development workflows and reduced infrastructure complexity. Typical 30-50% improvement in deployment frequency.</p>
+                </div>
+                
+                <div class="outcome-item">
+                    <h4>🧠 Reduced Developer Cognitive Load</h4>
+                    <p>Developers focus on business logic instead of infrastructure concerns. Faster onboarding for new team members and improved job satisfaction.</p>
+                </div>
+                
+                <div class="outcome-item">
+                    <h4>📈 Improved Development Velocity</h4>
+                    <p>Consistent infrastructure and tooling that scales with team growth. Self-service capabilities that eliminate bottlenecks and operational tickets.</p>
+                </div>
+                
+                <div class="outcome-item">
+                    <h4>🤝 Enhanced Collaboration</h4>
+                    <p>Standardized practices that improve knowledge sharing and cross-team collaboration. Reduced silos between development, operations, and security teams.</p>
+                </div>
+                
+                <div class="outcome-item">
+                    <h4>🎯 Platform as Product Culture</h4>
+                    <p>Internal platform teams that understand and serve developer needs. Continuous improvement driven by developer feedback and productivity metrics.</p>
+                </div>
+                
+                <div class="outcome-item">
+                    <h4>🔒 Security & Compliance</h4>
+                    <p>Security and compliance built into golden paths by default. Reduced security incidents through standardized, vetted infrastructure patterns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Transform Developer Productivity?</h2>
+            <p style="font-size: 1.2rem; margin: 2rem 0;">
+                Let's discuss how platform engineering can accelerate your development velocity.
+            </p>
+            
+            <a href="mailto:hello@leadclimberadvisory.com" class="cta-button">Schedule Strategy Session</a>
+            <a href="index.html" class="cta-button" style="background: #3498db;">Back to All Services</a>
+            
+            <div style="margin-top: 3rem;">
+                <p><strong>Next Steps:</strong></p>
+                <p>30-minute strategy session to understand your current development workflows and discuss how platform engineering can improve your team's productivity and delivery speed.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

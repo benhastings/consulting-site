@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Climber Advisory - Fractional Engineering Leadership</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,80 C20,60 40,70 60,50 C80,30 100,40 100,20 L100,100 L0,100 Z" fill="rgba(255,255,255,0.05)"/></svg>') no-repeat center;
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+        }
+        
+        .hero-subtitle {
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            margin: 0 10px;
+        }
+        
+        .cta-button:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .cta-secondary:hover {
+            background: white;
+            color: #2c3e50;
+        }
+        
+        .section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+        
+        .value-prop {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 5px solid #3498db;
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 0 10px 10px 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .value-prop h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-prop p {
+            font-size: 1.1rem;
+        }
+        
+        .primary-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+        
+        .primary-service {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 6px solid #e74c3c;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .primary-service:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .primary-service h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .challenge {
+            background: #fff3cd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .challenge h4 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .approach {
+            background: #d1edff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0dcaf0;
+        }
+        
+        .approach h4 {
+            color: #055160;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .outcomes {
+            background: #d4edda;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #28a745;
+        }
+        
+        .outcomes h4 {
+            color: #155724;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .learn-more-btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .learn-more-btn:hover {
+            background: #2980b9;
+        }
+        
+        .supporting-services {
+            margin-top: 4rem;
+        }
+        
+        .supporting-services h3 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        .supporting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .supporting-service {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 3px solid #95a5a6;
+            transition: transform 0.3s;
+        }
+        
+        .supporting-service:hover {
+            transform: translateY(-3px);
+        }
+        
+        .supporting-service h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .credentials {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat {
+            padding: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3498db;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+        
+        .climbing-metaphor {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .metaphor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .metaphor-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .metaphor-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .metaphor-item p {
+            color: #ffffff;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .primary-services {
+                grid-template-columns: 1fr;
+            }
+            
+            .primary-service {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Lead Climber Advisory</div>
+            <ul class="nav-links">
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Lead Climber Advisory</h1>
+                <p class="tagline">Fractional Engineering Leadership for Scaling Technology Organizations</p>
+                <p class="hero-description">
+                    Get enterprise-scale engineering leadership without the enterprise-scale commitment. We've guided technology transformations supporting trillions of data points and thousands of applications—now we bring that experience to your scaling journey.
+                </p>
+                <p class="hero-subtitle">
+                    Specialized in Observability Strategy and Site Reliability Engineering for organizations ready to scale with confidence.
+                </p>
+                <a href="#contact" class="cta-button">Schedule Strategy Session</a>
+                <a href="#leadership" class="cta-button cta-secondary">Explore Leadership Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>The Scaling Inflection Point</h2>
+            
+            <div class="value-prop">
+                <h3>🚀 The Feature Velocity Trap</h3>
+                <p>You've found product-market fit and growth is accelerating. But here's the challenge: outstanding user experiences come from reliable features (fast, accurate, consistent), not just great features. Your technology foundation—built for speed—now needs the reliability infrastructure that protects customer experience and business outcomes as you scale.</p>
+            </div>
+
+            <div class="value-prop">
+                <h3>🌉 Building the Bridge That Matters</h3>
+                <p>Success requires connecting business metrics to technology reliability. You need leadership that speaks both languages—someone who can establish observability strategies that measure customer impact, implement SRE practices that protect revenue, and build the systems that let you scale with confidence instead of fear.</p>
+            </div>
+
+            <div class="value-prop">
+                <h3>⚡ Strategic Engineering Leadership for Business Outcomes</h3>
+                <p>We embed as your fractional engineering leader, establishing the reliability foundations that transform customer experience metrics into competitive advantages. Not just better monitoring—but the strategic infrastructure that enables you to measure, understand, and optimize the customer journey that drives your business.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="leadership">
+        <div class="container">
+            <h2>Fractional Engineering Leadership</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <strong>Core Specializations:</strong> Observability Strategy and Site Reliability Engineering for organizations scaling from startup to enterprise.
+            </p>
+
+            <div class="primary-services">
+                <div class="primary-service">
+                    <h3>🔍 Observability Strategy & Foundation</h3>
+                    
+                    <div class="challenge">
+                        <h4>The Business Challenge</h4>
+                        <p>Feature velocity is driving growth, but operational debt is mounting. Customer experience issues directly impact conversion, retention, and revenue—but you lack the visibility to understand which technical problems create business problems. You're building features without the reliability foundation to deliver them consistently.</p>
+                    </div>
+                    
+                    <div class="approach">
+                        <h4>Our Leadership Approach</h4>
+                        <p>We establish observability strategies that connect customer experience to business metrics. Working with your team, we design telemetry systems that reveal not just what's broken, but what's costing you customers and revenue. We build the measurement foundation that turns reliability into a competitive advantage.</p>
+                    </div>
+                    
+                    <div class="outcomes">
+                        <h4>Business Impact</h4>
+                        <p>Real-time visibility into customer experience quality, ability to predict and prevent revenue-impacting incidents, data-driven decisions about reliability investments, and executive dashboards that connect technical health to business KPIs. Typically see 20-90% cost optimization alongside improved customer satisfaction.</p>
+                    </div>
+                    
+                    <a href="observability-strategy.html" class="learn-more-btn">Learn More</a></a>
+                </div>
+
+                <div class="primary-service">
+                    <h3>🛡️ SRE Practice Leadership & Implementation</h3>
+                    
+                    <div class="challenge">
+                        <h4>The Business Challenge</h4>
+                        <p>Your teams are caught between feature velocity and system stability. Outages directly impact customer trust and revenue, but you lack clear SLOs that balance business needs with technical reality. The constant tension between shipping fast and maintaining reliability is slowing down both.</p>
+                    </div>
+                    
+                    <div class="approach">
+                        <h4>Our Leadership Approach</h4>
+                        <p>We establish SRE practices that align reliability targets with business objectives. Working across engineering and product teams, we implement error budgets that enable confident feature velocity, define SLOs that protect customer experience, and create the cultural frameworks where reliability becomes everyone's business responsibility.</p>
+                    </div>
+                    
+                    <div class="outcomes">
+                        <h4>Business Impact</h4>
+                        <p>Reduced customer-impacting incidents, faster feature delivery through clearer operational responsibilities, measurable customer experience improvements, and reliability targets that support business growth rather than limiting it. Teams ship with confidence knowing they have the data to maintain customer trust.</p>
+                    </div>
+                    
+                    <a href="sre-practice.html" class="learn-more-btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="supporting-services">
+                <h3>Supporting Leadership Capabilities</h3>
+                <div class="supporting-grid">
+                    <div class="supporting-service">
+                        <h4>⚡ Performance Engineering Leadership</h4>
+                        <p>Transform user experience metrics into business advantages. We establish real user monitoring that reveals the connection between page load times and conversion rates, build performance culture that protects customer satisfaction, and create the measurement systems that turn speed into competitive differentiation.</p>
+                        <a href="performance-engineering.html" class="learn-more-btn">Learn More</a>
+                    </div>
+                    
+                    <div class="supporting-service">
+                        <h4>🏗️ Platform Engineering Strategy</h4>
+                        <p>Enable sustainable feature velocity through developer productivity platforms. We design golden paths that accelerate time-to-market, establish infrastructure foundations that scale with your business growth, and create the systems that let your teams ship reliably without operational overhead.</p>
+                        <a href="platform-engineering.html" class="learn-more-btn">Learn More</a>
+                    </div>
+                    
+                    <div class="supporting-service">
+                        <h4>👨‍💼 Interim Engineering Leadership</h4>
+                        <p>Full engineering leadership during transitions, strategic technical due diligence, and mentorship programs that prepare your internal teams for permanent leadership roles.</p>
+                        <a href="interim-leadership.html" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section credentials" id="experience">
+        <div class="container">
+            <h2>Enterprise-Scale Leadership Experience</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">
+                We've already navigated the routes your organization is preparing to climb.
+            </p>
+
+            <div class="stats-grid">
+                <div class="stat">
+                    <span class="stat-number">4.2T</span>
+                    <span class="stat-label">Daily data points managed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">2,700+</span>
+                    <span class="stat-label">Applications supported</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">90%</span>
+                    <span class="stat-label">Cost optimization achieved</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1000s</span>
+                    <span class="stat-label">Engineers guided through transformation</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">
+                    <strong>Proven Engineering Leadership at Enterprise Scale:</strong>
+                </p>
+                <p style="font-size: 1.1rem; opacity: 0.85;">
+                    Led enterprise-wide observability transformations, implemented SRE practices for global teams, and guided agile transformations for thousands of engineers. Built the technology reliability foundations that enable companies to scale with confidence—from startup velocity to enterprise reliability.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section climbing-metaphor" id="approach">
+        <div class="container">
+            <h2>The Fractional Leadership Approach</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">
+                We embed as your engineering leader, establishing the route to enterprise-scale reliability.
+            </p>
+
+            <div class="metaphor-grid">
+                <div class="metaphor-item">
+                    <h4>🎯 Strategic Route Planning</h4>
+                    <p>We assess your current technology position, understand your scaling goals, and design the strategic roadmap that gets you there safely and efficiently.</p>
+                </div>
+                <div class="metaphor-item">
+                    <h4>🔗 Establishing Protection Systems</h4>
+                    <p>We implement the observability, SRE, and reliability systems that keep your organization safe while pushing into new scale territory.</p>
+                </div>
+                <div class="metaphor-item">
+                    <h4>🧗‍♂️ Leading the Technical Expedition</h4>
+                    <p>We go first, demonstrating enterprise-scale techniques and building team confidence so your engineers can follow the route independently.</p>
+                </div>
+                <div class="metaphor-item">
+                    <h4>📍 Knowledge Transfer & Succession</h4>
+                    <p>We ensure the path is well-documented with processes, training, and internal leadership development so your team owns the route forward.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; padding: 2.5rem; background: rgba(255, 255, 255, 0.15); border-radius: 15px;">
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem;">Our Leadership Philosophy</h3>
+                <p style="font-size: 1.2rem; line-height: 1.7;">
+                    "The best engineering leaders don't just reach the summit—they establish routes that enable entire organizations to scale reliably. We've navigated enterprise-scale transformations. We know the terrain. Let us guide your technology expedition to the next level."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h2>Ready to Scale with Confidence?</h2>
+            <p style="font-size: 1.2rem; margin: 1rem 0;">
+                Let's discuss your technology leadership needs and design the strategic roadmap to enterprise-scale reliability.
+            </p>
+            
+            <div class="contact-info">
+                <p><strong>Fractional Engineering Leadership | Remote-First with Strategic Travel</strong></p>
+                <p>Serving scaling technology organizations across the United States and Western Europe</p>
+                <p style="margin-top: 2rem;">
+                    <a href="mailto:hello@leadclimberadvisory.com">hello@leadclimberadvisory.com</a><br>
+                    <a href="https://linkedin.com/in/ben-[lastname]">LinkedIn</a> | 
+                    <a href="#schedule">Schedule a Leadership Strategy Session</a>
+                </p>
+            </div>
+            
+            <p style="margin-top: 3rem; opacity: 0.7;">
+                © 2025 Lead Climber Advisory. Fractional engineering leadership for scaling technology organizations.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
